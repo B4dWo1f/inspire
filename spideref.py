@@ -62,7 +62,8 @@ bibs = []
 for lb in links_bib:
    html_doc = make_request(lb)
    Slb = BeautifulSoup(html_doc,'html.parser')
-   bib = Slb.find('pre')
-   f.write(bib.text+'\n')
+   bib = Slb.find('pre').text
+   bib = bib.strip()
+   f.write(bib+'\n\n')
    f.flush()
 f.close()
